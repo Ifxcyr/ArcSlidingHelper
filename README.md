@@ -83,4 +83,5 @@ implementation 'com.wuyr:arcslidinghelper:1.0.0'
 ### 效果：
 ![preview](https://github.com/wuyr/ArcSlidingHelper/raw/master/preview.gif) ![preview](https://github.com/wuyr/ArcSlidingHelper/raw/master/preview2.gif)
 ### Demo: https://github.com/wuyr/ArcSlidingHelper
+### 博客详情：https://blog.csdn.net/u011387817/article/details/80313184
 ### 可定制性超强的圆弧滑动组件:https://github.com/Ifxcyr/FanLayout
