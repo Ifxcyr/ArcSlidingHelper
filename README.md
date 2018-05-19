@@ -46,27 +46,39 @@ app/build.gradle:
 implementation 'com.wuyr:arcslidinghelper:1.0.0'
 ```
 ### 简单使用示例：
-```
-        mView = findViewById(R.id.view);
-        //创建对象
-        mArcSlidingHelper = ArcSlidingHelper.create(mView, new ArcSlidingHelper.OnSlidingListener() {
-            @Override
-            public void onSliding(float angle) {
-                mView.setRotation(mView.getRotation() + angle);
-            }
-        });
-        //开启惯性滚动
-        mArcSlidingHelper.enableInertialSliding(true);
+    private ArcSlidingHelper mArcSlidingHelper;
+    private View mView;
 
-        getWindow().getDecorView().setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                //处理滑动事件
-                mArcSlidingHelper.handleMovement(event);
-                return true;
-            }
+    @SuppressLint("ClickableViewAccessibility")
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.act_main_view);
+
+        mView = findViewById(R.id.view);
+        mView.post(() -> {
+            //创建对象
+            mArcSlidingHelper = ArcSlidingHelper.create(mView,
+                    angle -> mView.setRotation(mView.getRotation() + angle));
+            //开启惯性滚动
+            mArcSlidingHelper.enableInertialSliding(true);
+
         });
+        getWindow().getDecorView().setOnTouchListener((v, event) -> {
+            //处理滑动事件
+            mArcSlidingHelper.handleMovement(event);
+            return true;
+        });
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //释放资源
+        mArcSlidingHelper.release();
+    }
 ```
 ### 效果：
-![preview](https://github.com/wuyr/ArcSlidingHelper/raw/master/preview.gif)
+![preview](https://github.com/wuyr/ArcSlidingHelper/raw/master/preview.gif) ![preview](https://github.com/wuyr/ArcSlidingHelper/raw/master/preview2.gif)
 ### Demo: https://github.com/wuyr/ArcSlidingHelper
