@@ -46,6 +46,7 @@ app/build.gradle:
 implementation 'com.wuyr:arcslidinghelper:1.0.0'
 ```
 ### 简单使用示例：
+```
     private ArcSlidingHelper mArcSlidingHelper;
     private View mView;
 
