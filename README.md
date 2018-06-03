@@ -43,7 +43,7 @@ allprojects {
 ```
 app/build.gradle:
 ```
-implementation 'com.wuyr:arcslidinghelper:1.0.0'
+implementation 'com.wuyr:arcslidinghelper:1.0.1'
 ```
 ### 简单使用示例：
 ```
