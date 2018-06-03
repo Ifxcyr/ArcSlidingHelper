@@ -30,6 +30,9 @@ updatePivotY(pivotY);
 
 //释放资源
 release();
+
+//监听滚动完毕
+setOnSlideFinishListener(onSlideFinishListener);
 ```
 ### 添加依赖：
 build.gradle:
